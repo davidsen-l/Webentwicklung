@@ -1,5 +1,2 @@
-# Webentwicklung
-
-## Ausleihliste
-
-Mann kann Bücher Buchen 
+# Büchersysthem
+<strong>Idee:</stong> Mann soll aus einer Auswahl von Büchern eins auswählen können und dieses als ausgeliehen makieren können. Dieses kommt dann in eine Liste in der die Ausgeliehenen stehen. Dort soll man diese auch auswählen können und zurückgeben sodass die Bücher wieder normal angezeigt werden. Zusätlich soll man noch das Datum und einen Namen speichern können wenn man ein Buch ausleiht.
