@@ -1,0 +1,15 @@
+
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',Verdana, sans-serif;
+}
+.Buch {
+    inline-size: auto;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: brown;
+    width: auto;
+    height: 500px;
+}
+body {
+    background: rgba(0, 0, 0, 0.85);
+    color: rgb(255, 255, 255);
+  }

@@ -3,11 +3,46 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Titel der Seite</title>
-    <link rel="stylesheet" href="myStyle.css" />
-    <script src="myScript.js" defer></script>
+    <title>Bibliotheksverwaltung</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <p>Text im Browserfenster</p>
+    <h1>Ausleihliste</h1> 
+    <br/>
+    <a class="Buch">Annakarenina</a>
+    <a class="Buch">Macbeth</a>
+    <br/>
+    <p>Bitte geben sie das Buch ein das sie ausleihen wollen,
+       ihren Namen und das aktuelle Datum.
+    </p>
+    <br/>
+    <form>
+      <div>
+        <label>Buch:</label>
+        <input type="text"/>
+        <label>Name:</label>
+        <input type="text"/>
+        <label>Datum:</label>
+        <input type="date">
+      </div>
+    </form>
+    <br/>
+    <table>
+      <tr>
+        <th>Buch</th>
+        <th>Name</th>
+        <th>Datum</th>
+      </tr>
+      <tr>
+        <td>Annakarenina</td>
+        <td>Thomas Müller</td>
+        <td>20.03.2025</td>
+      </tr>
+      <tr>
+        <td>Macbeth</td>
+        <td>William Shakespere</td>
+        <td>21.05.1853</td>
+      </tr>
+    </table>
   </body>
 </html>
