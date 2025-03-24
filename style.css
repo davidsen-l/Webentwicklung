@@ -3,13 +3,33 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',Verdana, sans-serif;
 }
 .Buch {
-    inline-size: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
     font-family: 'Times New Roman', Times, serif;
+    gap: 10px;
+}
+.Buch p{
     background-color: brown;
-    width: auto;
-    height: 500px;
+    padding: 1em;
+    height: 10em;
+    width: 6em;
+}
+.Buch p.rentet{
+    background-color: gray;
 }
 body {
     background: rgba(0, 0, 0, 0.85);
     color: rgb(255, 255, 255);
-  }
+}
+th{
+    background-color: blue;
+}
+td{
+    background-color: rgba(0, 0, 255, 0.418);
+}
+table{
+    width: 100%;
+}
+

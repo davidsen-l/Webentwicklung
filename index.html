@@ -9,11 +9,18 @@
   <body>
     <h1>Ausleihliste</h1> 
     <br/>
-    <a class="Buch">Annakarenina</a>
-    <a class="Buch">Macbeth</a>
+    <div class="Buch">
+      <p class="rentet">Anna Karenina</p>
+      <p>Harry Potter</p>
+      <p class="rentet">Dark City</p>
+      <p>Der Hobbit</p>
+      <p>Die Tribute von Panem</p>
+      <p>Die Verwandlung</p>
+      <p class="rentet">MacBeth</p>
+     </div>
     <br/>
     <p>Bitte geben sie das Buch ein das sie ausleihen wollen,
-       ihren Namen und das aktuelle Datum.
+       ihren Namen und das aktuelle Datum:
     </p>
     <br/>
     <form>
@@ -21,7 +28,7 @@
         <label>Buch:</label>
         <input type="text"/>
         <label>Name:</label>
-        <input type="text"/>
+        <input type="text"/> 
         <label>Datum:</label>
         <input type="date">
       </div>
@@ -42,6 +49,11 @@
         <td>Macbeth</td>
         <td>William Shakespere</td>
         <td>21.05.1853</td>
+      </tr>
+      <tr>
+        <td>Dark City</td>
+        <td>Maria</td>
+        <td>24.03.2025</td>
       </tr>
     </table>
   </body>
