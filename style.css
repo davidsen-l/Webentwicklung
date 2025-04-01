@@ -13,7 +13,10 @@
 .Buch p{
     font-family: 'Times New Roman', Times, serif;
     font-style: oblique;
+    color: rgb(255, 255, 255);
     font-size: 1.2em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    padding: 20px;
     padding: 1em;
     padding-left: 1.5em;
     height: 10em;
@@ -42,7 +45,10 @@
     background-color: brown;
 }
 body {
-    background: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.877);
+    background-image: url('https://get.wallhere.com/photo/white-black-monochrome-dark-texture-atmosphere-light-background-line-surface-darkness-spots-computer-wallpaper-black-and-white-monochrome-photography-701877.jpg');
+    background-size: cover;
+    background-attachment: fixed;
     color: rgb(255, 255, 255);
 }
 th{
@@ -55,8 +61,6 @@ td{
 }
 table{
     width: 100%;
-    position: fixed;
-    bottom: 0;
 }
 h1{
     text-align: center;
