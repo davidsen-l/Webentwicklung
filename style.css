@@ -13,22 +13,32 @@
 .Buch p{
     font-family: 'Times New Roman', Times, serif;
     font-style: oblique;
-    background-color: rgb(160, 69, 9);
+    font-size: 1.2em;
     padding: 1em;
+    padding-left: 1.5em;
     height: 10em;
     width: 7em;
     border-radius: 0px 10px 10px 0px;
+    background-color: rgb(160, 69, 9);
+    background-image: url('https://i.pinimg.com/originals/fa/4e/71/fa4e718eeeef05fb0089372312ae15de.jpg');
+    background-size: cover;
+    background-position: center;
     transition: padding 1s, font-size 1s;
 }
 .Buch p:hover{
-    font-size: 1.2em;
-    padding: 2em;
+    background-image: none;
+    font-size: 1.5em;
+    padding: 1em;
     background-color: rgb(43, 146, 22);
 }
 .Buch p.rentet{
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.5);
+    background-image: url('https://github.com/davidsen-l/Webentwicklung/blob/main/Bild_2.jpeg?raw=true');
+    background-size: cover;
+    background-position: center;
 }
 .Buch p.rentet:hover{
+    background-image: none;
     background-color: brown;
 }
 body {
@@ -50,4 +60,7 @@ table{
 }
 h1{
     text-align: center;
+}
+p{
+    font-size: large;
 }
