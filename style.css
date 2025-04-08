@@ -26,6 +26,11 @@
     background-position: center;
     transition: padding 1s, font-size 1s;
 }
+.Buch p span{
+    background-color: rgb(193 155 23);
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
 .Buch p:hover{
     background-image: none;
     font-size: 1.5em;
@@ -37,6 +42,11 @@
     background-image: url('https://github.com/davidsen-l/Webentwicklung/blob/main/Bild_2.jpeg?raw=true');
     background-size: cover;
     background-position: center;
+}
+.Buch p.rentet span{
+    background-color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
 }
 .Buch p.rentet:hover{
     background-image: none;
