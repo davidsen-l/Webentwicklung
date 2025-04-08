@@ -76,3 +76,18 @@ h1{
 p{
     font-size: large;
 }
+.container{
+    display: flex;
+    justify-content: end;
+}
+.button{
+    background-color: rgb(160, 69, 9);
+    border: 2px solid black;
+    padding:0.25em;
+    max-width: fit-content;
+    box-sizing: border-box;
+    border-radius: 8px 8px 8px 8px;
+}
+.button:hover{
+    background-color: gray;
+}
