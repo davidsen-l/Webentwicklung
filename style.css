@@ -30,6 +30,8 @@
     background-color: rgb(193 155 23);
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
+    padding: 0.2em;
+    border-radius: 5px 5px 5px 5px;
 }
 .Buch p:hover{
     background-image: none;
