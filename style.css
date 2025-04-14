@@ -14,13 +14,12 @@
     font-family: 'Times New Roman', Times, serif;
     font-style: oblique;
     font-size: 1.2em;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     padding: 1em;
-    padding-left: 1.5em;
+    padding-left: 1em;
     height: 10em;
     width: 7em;
     border-radius: 0px 10px 10px 0px;
-    background-color: rgb(160, 69, 9);
+    background-color: var(--primary-color);
     background-image: url('https://i.pinimg.com/originals/fa/4e/71/fa4e718eeeef05fb0089372312ae15de.jpg');
     background-size: cover;
     background-position: center;
@@ -62,7 +61,7 @@ body {
     color: rgb(255, 255, 255);
 }
 th{
-    background-color: rgb(160, 69, 9);
+    background-color: var(--primary-color);
     height: 2em;
 }
 td{
@@ -83,7 +82,7 @@ p{
     justify-content: end;
 }
 .button{
-    background-color: rgb(160, 69, 9);
+    background-color: var(--primary-color);
     border: 2px solid black;
     padding:0.25em;
     max-width: fit-content;
@@ -92,4 +91,7 @@ p{
 }
 .button:hover{
     background-color: gray;
+}
+:root {
+    --primary-color: rgb(160, 69, 9);
 }
