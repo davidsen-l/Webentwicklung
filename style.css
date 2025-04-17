@@ -95,3 +95,22 @@ p{
 :root {
     --primary-color: rgb(160, 69, 9);
 }
+.popupbuch{
+    position: fixed;
+    width: fit-content;
+    top: 20vh;
+    background: var(--primary-color);
+    color: white;
+}
+.popupbuch p{
+    text-align: center;
+}
+.popupbuch button{
+    position: absolute;
+    bottom: -1.5em;
+    width: 100%;
+}
+.popup em {
+    position: relative;
+    top: -5px;
+  }
