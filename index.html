@@ -30,10 +30,10 @@
       <p><span>Narnia</span></p>
     </div>
     <br/>
-    <br/>
+    <!--<br/>
     <div class="container">
       <p class="button" id="new">Neues Buch hinzufügen</p>
-     </div>
+     </div>-->
     <form>
       <div>
         <label>Buch:</label>
@@ -45,7 +45,7 @@
       </div>
     </form>
     <br/>
-    <div class="container">
+    <div class="container" hidden>
      <p class="button">zurückgeben</p>
     </div>
     <table>
@@ -80,13 +80,14 @@
         <td>07.05.1809</td>
       </tr>
     </table>
-    <div class="popupbuch">
-      <button>Speichern</button>
+    <div class="popupbuch" hidden>
       <p>Bitte geben sie ihren Namen ein:</p>
       <form>
         <label>Name:</label>
         <input type="text"/>
       </form>
+      <br/>
+      <button type="button">Speichern</button>
     </div>
   </body>
 </html>

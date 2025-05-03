@@ -79,7 +79,7 @@ p{
 }
 .container{
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 .button{
     background-color: var(--primary-color);
@@ -97,20 +97,19 @@ p{
 }
 .popupbuch{
     position: fixed;
+    top: 35%;
+    right: 40%;
     width: fit-content;
-    top: 20vh;
     background: var(--primary-color);
     color: white;
+    padding: 1em;
+    border-radius: 8px 8px 8px 8px;
 }
 .popupbuch p{
     text-align: center;
 }
 .popupbuch button{
-    position: absolute;
-    bottom: -1.5em;
+    bottom: -1em;
     width: 100%;
+    border-radius: 8px 8px 8px 8px;
 }
-.popup em {
-    position: relative;
-    top: -5px;
-  }
