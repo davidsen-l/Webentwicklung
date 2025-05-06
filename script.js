@@ -13,29 +13,35 @@ let Popup = document.querySelector('.popupbuch');
 let Speichern = document.querySelector('.popupbuch button');
 let NameInput = document.querySelector('.popupbuch input');
 let PopupForm = document.querySelector('.popupbuch form');
-let Rückgabe = document.querySelector('.container');
+let Rückgabe = document.querySelector('.button');
 let GeklicktesBuch = null;
 
-Buch.addEventListener('click', buchausleihen);
-Speichern.addEventListener('click',abgabe);
+Buch.addEventListener('click', rent);
+Speichern.addEventListener('click',save);
 PopupForm.addEventListener('submit',function(event){event.preventDefault();})
+Rückgabe.addEventListener('click',giveback);
 
-function buchausleihen(event){
-  let geklickt = event.target.closest('p');//mit hilfe von KI
-  GeklicktesBuch = geklickt;
+function rent(event){
+  let Geklickt = event.target.closest('p');//mit hilfe von KI
+  GeklicktesBuch = Geklickt;
   if (geklickt.classList.contains('rentet')) {
     Rückgabe.removeAttribute('hidden');// mein Button tauvht nicht auf
   } else {
     Popup.removeAttribute('hidden');
   }
 }
-function abgabe (){
+
+function save (){
   GeklicktesBuch.classList.add('rentet');
   Popup.setAttribute('hidden','');
   NameInput.value = '';
   // soll den Namen in die Liste packen
 }
 
+function giveback (){
+  GeklicktesBuch.classList.remove('rentet');
+  Rückgabe.setAttribute('hidden','');
+}
 
 const person = {
   book: 'Annakarenina',

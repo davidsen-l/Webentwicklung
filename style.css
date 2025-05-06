@@ -77,16 +77,14 @@ h1{
 p{
     font-size: large;
 }
-.container{
-    display: flex;
-    justify-content: center;
-}
 .button{
+    position: fixed;
+    top: 35%;
+    right: 43%;
     background-color: var(--primary-color);
     border: 2px solid black;
     padding:0.25em;
     max-width: fit-content;
-    box-sizing: border-box;
     border-radius: 8px 8px 8px 8px;
 }
 .button:hover{
