@@ -15,69 +15,38 @@
     <p>Bitte wählen Sie das Buch aus, welches Sie ausleihen möchten:</p>
     <br/>
     <div class="Buch">
-      <p class="rentet"><span>Anna Karenina</span></p>
+      <p><span>Anna Karenina</span></p>
       <p><span>Das fliegende Klassenzimmer</span></p>
-      <p class="rentet"><span>Dark City</span></p>
-      <p class="rentet"><span>Dark Sigils</span></p>
+      <p><span>Dark City</span></p>
+      <p><span>Dark Sigils</span></p>
       <p><span>Der Hobbit</span></p>
       <p><span>Der Schrecksenmeister</span></p>
       <p><span>Die Tribute von Panem</span></p>
       <p><span>Die Verwandlung</span></p>
-      <p class="rentet"><span>Faust</span></p>
+      <p><span>Faust</span></p>
       <p><span>Harry Potter</span></p>
       <p><span>Liv</span></p>
-      <p class="rentet"><span>MacBeth</span></p>
+      <p><span>MacBeth</span></p>
       <p><span>Narnia</span></p>
     </div>
     <br/>
-    <!--<br/>
-    <div class="container">
-      <p class="button" id="new">Neues Buch hinzufügen</p>
-     </div>-->
-    <!--<form>
-      <div>
-        <label>Buch:</label>
-        <input type="text"/>
-        <label>Name:</label>
-        <input type="text"/> 
-        <label>Datum:</label>
-        <input type="date">
-      </div>
-    </form>
-    <br/>-->
      <p class="button" hidden>zurückgeben</p>
-    <table>
-      <tr>
-        <th>BUCH</th>
-        <th>NAME</th>
-        <th>DATUM</th>
-      </tr>
-      
-      <!--<tr>
-        <td>Annakarenina</td>
-        <td>Thomas Müller</td>
-        <td>20.03.2025</td>
-      </tr>
-      <tr>
-        <td>Macbeth</td>
-        <td>William Shakespere</td>
-        <td>21.05.1853</td>
-      </tr>
-      <tr>
-        <td>Dark City</td>
-        <td>Maria</td>
-        <td>24.03.2025</td>
-      </tr>
-      <tr>
-        <td>Dark Sigils</td>
-        <td>Lisa</td>
-        <td>05.08.2024</td> 
-      </tr>
-      <tr>
-        <td>Faust</td>
-        <td>Johann Wolfgang von Goethe</td>
-        <td>07.05.1809</td>
-      </tr>-->
+    <table class="liste">
+      <thead>
+        <tr>
+          <th>BUCH</th>
+          <th>NAME</th>
+          <th>DATUM</th>
+          <th>Zurückgeben</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Faust</td>
+          <td>Johann Wolfgang von Goethe</td>
+          <td>07.05.1809</td>
+        </tr>
+      </tbody>
     </table>
     <div class="popupbuch" hidden>
       <p>Bitte geben sie ihren Namen ein:</p>
@@ -87,6 +56,7 @@
       </form>
       <br/>
       <button type="button">Speichern</button>
+      <button type="button" id="X">X</button>
     </div>
   </body>
 </html>
