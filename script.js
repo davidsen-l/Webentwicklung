@@ -23,7 +23,6 @@ PopupForm.addEventListener('submit',function(event){event.preventDefault();})
 Abbruch.addEventListener('click',cancel);
 
 function cancel(event){
-  event.stopPropagation();
   NameInput.value= '';
   Popup.setAttribute('hidden','');
 }
@@ -70,7 +69,8 @@ function updateListe() { //mit Hilfe von KI
     let aktionZelle = document.createElement('td');
     let loeschButton = document.createElement('button');
     loeschButton.textContent = 'Zurückgeben';
-    loeschButton.addEventListener('click', () => {
+
+    loeschButton.addEventListener('click', () => { //mit Hilfe von KI
       let buchElementOben = Array.from(document.querySelectorAll('.Buch p'))
         .find(p => p.textContent.trim() === person.book);
       if (buchElementOben) {
