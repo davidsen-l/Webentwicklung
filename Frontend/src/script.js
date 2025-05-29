@@ -37,14 +37,25 @@ function rent(event){
   }
 }
 
-function save (){
+async function save (){
   GeklicktesBuch.classList.add('rentet');
   Popup.setAttribute('hidden','');
   let neuePerson = new Person (GeklicktesBuch.textContent,NameInput.value,datum);
+  try {
+    const response = await fetch('http://localhost:5500/api/ausleihliste', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(neuePerson)
+   });
+  const result = await response.json();
+  neuePerson.id = result.id;
   Ausgeliehen.push(neuePerson);
-  NameInput.value= '';
   updateListe();
-  localStorage.setItem('personen', JSON.stringify(Ausgeliehen));
+  } catch (error) {
+    console.error('Fehler beim Speichern:', error);
+  }
+  NameInput.value= '';
+  //localStorage.setItem('personen', JSON.stringify(Ausgeliehen));
 }
 
 function updateListe() { //mit Hilfe von KI
@@ -70,15 +81,22 @@ function updateListe() { //mit Hilfe von KI
     let loeschButton = document.createElement('button');
     loeschButton.textContent = 'Zurückgeben';
 
-    loeschButton.addEventListener('click', () => { //mit Hilfe von KI
-      let buchElementOben = Array.from(document.querySelectorAll('.Buch p'))
-        .find(p => p.textContent.trim() === person.book);
-      if (buchElementOben) {
+    loeschButton.addEventListener('click', async () => { //mit Hilfe von KI
+       try { // Server: Eintrag löschen
+    await fetch(`http://localhost:5500/api/ausleihliste/${person.id}`, {
+      method: 'DELETE'
+    });
+    let buchElementOben = Array.from(document.querySelectorAll('.Buch p'))
+    .find(p => p.textContent.trim() === person.book);
+    if (buchElementOben) {
         buchElementOben.classList.remove('rentet');
-      }
-      Ausgeliehen.splice(index, 1);
-      localStorage.setItem('personen', JSON.stringify(Ausgeliehen));
-      updateListe();
+     }
+    Ausgeliehen.splice(index, 1);
+     //localStorage.setItem('personen', JSON.stringify(Ausgeliehen));
+    updateListe();
+    } catch (error) {
+    console.error('Fehler beim Löschen:', error);
+    } 
     });
 
     aktionZelle.appendChild(loeschButton);
@@ -87,18 +105,23 @@ function updateListe() { //mit Hilfe von KI
   });
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  let gespeicherteDaten = localStorage.getItem('personen');
-  if (gespeicherteDaten) {
-    Ausgeliehen = JSON.parse(gespeicherteDaten);
-    Ausgeliehen.forEach(person => {
-      let buchElement = Array.from(document.querySelectorAll('.Buch p'))
+window.addEventListener('DOMContentLoaded', async function () {
+  try {
+   const response = await fetch('http://localhost:5500/api/ausleihliste');
+    Ausgeliehen = await response.json();
+    /*let gespeicherteDaten = localStorage.getItem('personen');
+   if (gespeicherteDaten) {
+     Ausgeliehen = JSON.parse(gespeicherteDaten);*/
+     Ausgeliehen.forEach(person => {
+        let buchElement = Array.from(document.querySelectorAll('.Buch p'))
         .find(p => p.textContent.trim() === person.book);
       if (buchElement) {
         buchElement.classList.add('rentet');
       }
     });
     updateListe();
+    } catch (error) {
+    console.error('Fehler beim Laden:', error);
   }
 });
 
@@ -109,7 +132,7 @@ async function requestTextWithGET(url) {
   console.log('Response-Text:', text); // Text aus dem Response-Body
 }
 
-requestTextWithGET('https://127.0.0.1:5500');
+requestTextWithGET('http://127.0.0.1:5500');
 console.log('Zwischenzeitlich weiterarbeiten...');
 
 async function sendJsonWithPOST(url, jsonData) {
@@ -120,7 +143,6 @@ async function sendJsonWithPOST(url, jsonData) {
   // Auf Response kann wie bei GET reagiert werden
 }
 
-const person = {name: "Max", alter: 19};
-const jsonData = JSON.stringify(person);
+////const jsonData = JSON.stringify(person);
 
 sendJsonWithPOST('http://localhost:5500/', jsonData); // Hier URL zu lokalem Server für Entwicklung
