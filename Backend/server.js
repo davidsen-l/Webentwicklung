@@ -118,17 +118,26 @@ const sqlite3 = require('sqlite3');
 const sqlite = require('sqlite');
 
 const hostname = '127.0.0.1'; // localhost
-const port = 5500;
+const port = 5000;
 
 let db;
 
 async function startServer() {
   db = await sqlite.open({
-    filename: './Database/data/ausleihliste.db',
+    filename: './data/ausleihliste.db',
     driver: sqlite3.Database
   });
 
-const server = http.createServer((request, response) => {
+    await db.run(` 
+    CREATE TABLE IF NOT EXISTS ausleihliste ( 
+      id INTEGER PRIMARY KEY AUTOINCREMENT, 
+      book TEXT, 
+      name TEXT, 
+      date TEXT 
+    )
+  `); 
+
+const server = http.createServer(async(request, response) => {
   const parsedUrl = url.parse(request.url, true);
   const pathname = parsedUrl.pathname;
   const method = request.method;
@@ -142,7 +151,7 @@ const server = http.createServer((request, response) => {
     response.writeHead(204);
     return response.end();
   }
-});
+
 
 // GET /api/ausleihliste 
   if (pathname === '/api/ausleihliste' && method === 'GET') { 
@@ -154,8 +163,8 @@ const server = http.createServer((request, response) => {
   // POST /api/ausleihliste 
   if (pathname === '/api/ausleihliste' && method === 'POST') { 
     let body = ''; 
-    http.request.on('data', chunk => body += chunk); 
-    http.request.on('end', async () => { 
+    request.on('data', chunk => body += chunk); 
+    request.on('end', async () => { 
       const data = JSON.parse(body); 
       await db.run( 
         'INSERT INTO ausleihliste (book, name, date) VALUES (?, ?, ?)', 
@@ -180,9 +189,10 @@ const server = http.createServer((request, response) => {
     response.writeHead(404);
     response.end('Nicht gefunden');
 
- };
+});
+ 
  server.listen(port, hostname, () => {
   console.log(`Server läuft unter http://${hostname}:${port}/`);
 });
-
+};
 startServer();

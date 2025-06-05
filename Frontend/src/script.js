@@ -42,7 +42,7 @@ async function save (){
   Popup.setAttribute('hidden','');
   let neuePerson = new Person (GeklicktesBuch.textContent,NameInput.value,datum);
   try {
-    const response = await fetch('http://localhost:5500/api/ausleihliste', {
+    const response = await fetch('http://localhost:5000/api/ausleihliste', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(neuePerson)
@@ -83,7 +83,7 @@ function updateListe() { //mit Hilfe von KI
 
     loeschButton.addEventListener('click', async () => { //mit Hilfe von KI
        try { // Server: Eintrag löschen
-    await fetch(`http://localhost:5500/api/ausleihliste/${person.id}`, {
+    await fetch(`http://localhost:5000/api/ausleihliste/${person.id}`, {
       method: 'DELETE'
     });
     let buchElementOben = Array.from(document.querySelectorAll('.Buch p'))
@@ -107,7 +107,7 @@ function updateListe() { //mit Hilfe von KI
 
 window.addEventListener('DOMContentLoaded', async function () {
   try {
-   const response = await fetch('http://localhost:5500/api/ausleihliste');
+   const response = await fetch('http://localhost:5000/api/ausleihliste');
     Ausgeliehen = await response.json();
     /*let gespeicherteDaten = localStorage.getItem('personen');
    if (gespeicherteDaten) {
@@ -132,7 +132,7 @@ async function requestTextWithGET(url) {
   console.log('Response-Text:', text); // Text aus dem Response-Body
 }
 
-requestTextWithGET('http://127.0.0.1:5500');
+requestTextWithGET('http://127.0.0.1:5000');
 console.log('Zwischenzeitlich weiterarbeiten...');
 
 async function sendJsonWithPOST(url, jsonData) {
@@ -145,4 +145,4 @@ async function sendJsonWithPOST(url, jsonData) {
 
 ////const jsonData = JSON.stringify(person);
 
-sendJsonWithPOST('http://localhost:5500/', jsonData); // Hier URL zu lokalem Server für Entwicklung
+sendJsonWithPOST('http://localhost:5000/', jsonData); // Hier URL zu lokalem Server für Entwicklung
