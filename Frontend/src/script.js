@@ -55,7 +55,6 @@ async function save (){
     console.error('Fehler beim Speichern:', error);
   }
   NameInput.value= '';
-  //localStorage.setItem('personen', JSON.stringify(Ausgeliehen));
 }
 
 function updateListe() { //mit Hilfe von KI
@@ -92,7 +91,6 @@ function updateListe() { //mit Hilfe von KI
         buchElementOben.classList.remove('rentet');
      }
     Ausgeliehen.splice(index, 1);
-     //localStorage.setItem('personen', JSON.stringify(Ausgeliehen));
     updateListe();
     } catch (error) {
     console.error('Fehler beim Löschen:', error);
@@ -109,9 +107,6 @@ window.addEventListener('DOMContentLoaded', async function () {
   try {
    const response = await fetch('http://localhost:5000/api/ausleihliste');
     Ausgeliehen = await response.json();
-    /*let gespeicherteDaten = localStorage.getItem('personen');
-   if (gespeicherteDaten) {
-     Ausgeliehen = JSON.parse(gespeicherteDaten);*/
      Ausgeliehen.forEach(person => {
         let buchElement = Array.from(document.querySelectorAll('.Buch p'))
         .find(p => p.textContent.trim() === person.book);
@@ -140,9 +135,6 @@ async function sendJsonWithPOST(url, jsonData) {
     method: 'post',
     body: jsonData}
   )
-  // Auf Response kann wie bei GET reagiert werden
 }
-
-////const jsonData = JSON.stringify(person);
 
 sendJsonWithPOST('http://localhost:5000/', jsonData); // Hier URL zu lokalem Server für Entwicklung
